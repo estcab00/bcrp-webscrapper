@@ -8,5 +8,8 @@ This repository has a module that allows the scrapping of the Peruvian Central o
 
 ```downlodad_graph()```: This function scraps series from the BCRP Database and downloads the image in the given format (png, jpg, pdf).
 
-Under the modules folder we will find the bcrp_webscrapper.py file. Under the test folder we will find some examples of the functions being used.
+
+The repository contains two folders:
+Under the ```modules``` folder we will find the bcrp_webscrapper.py file where the functions are defined.
+Under the ```test``` folder we will find a Jupyter file with some examples of the functions being used.
 
