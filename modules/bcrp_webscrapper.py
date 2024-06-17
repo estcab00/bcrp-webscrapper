@@ -47,6 +47,9 @@ import urllib.request
 import requests
 from openpyxl import Workbook
 
+# Graphs files
+from IPython.display import SVG, display, IFrame
+
 # # pytesseract
 # from PIL import Image
 # from io import BytesIO
@@ -367,7 +370,88 @@ def bcrp_dataframe( series , start_date , end_date, freq):
         
     return df
 
-# function bcrp_graph()
+
+def bcrp_graph( series , start_date , end_date , format= 'png'):
+    '''
+    Objective: 
+        This function scraps series from the BCRP Database and graphs the image in the given format.
+
+    Input: 
+        series (str/list) : The code of the series we want to webscrap, i.e: 'PN38705PM'. In case we want to scrap many series, we enter a list with each code 
+                            separated by a coma, up to 10 codes, i.e: ['PN38706PM', 'PN38707PM', 'PN38708PM', 'PN38708PM']
+
+        start_date (str)  : The starting date of the series. For daily series it must follow the patter 'yyyy-mm-dd'. For other frequencies it must 
+                            follow 'yyyy-mm'. For anual series it can be specified just as 'yyyy'.
+
+        end_date (str)    : The starting date of the series. For daily series it must follow the patter 'yyyy-mm-dd'. For other frequencies it must 
+                            follow 'yyyy-mm'. For anual series it can be specified just as 'yyyy'.
+
+        format (str)      : It tells us the format of the download. It can be 'jpg' or 'png'. By default it downloads a png picture.
+ 
+    Output:
+        It graphs the BCRP series after downloading it.
+    '''
+
+
+    base     = 'https://estadisticas.bcrp.gob.pe/estadisticas/series/api/'
+
+    if isinstance( series , list):
+        string = ''
+        for element in series : 
+            string += element
+            string += '-'
+        string =  string[:-1]
+        serie  = string
+
+    else:
+        serie  =  series
+    anio1     = start_date
+    anio2     = end_date
+    url       = base + serie + '/' + 'html' + '/' + anio1  + '/' + anio2
+    options   = Options()
+    # options.add_argument( '--headless' )
+    driver    = webdriver.Chrome(options = options)        
+    driver.get( url )
+    driver.maximize_window()
+
+    driver.find_element(By.XPATH, '//*[@id="btnGrafico"]').click()
+
+    # We go to the next window and download the image in selected format.
+    window_after = driver.window_handles[1]
+    driver.switch_to.window(window_after)
+
+    # Depending on the format we choose, the image is downloaded    
+    if format   == 'png':
+        driver.find_element(By.XPATH, '//*[@id="chart-selector"]/li[2]/img').click()
+        time.sleep(4)
+
+    elif format == 'jpg':
+        driver.find_element(By.XPATH, '//*[@id="chart-selector"]/li[1]/img').click()
+        time.sleep(4)
+
+    # elif format == 'pdf':
+    #     driver.find_element(By.XPATH, '//*[@id="chart-selector"]/li[3]/img').click()
+    #     time.sleep(4)
+
+    download_dir = os.path.expanduser('~/Downloads')
+    files = os.listdir(download_dir)
+    paths = [os.path.join(download_dir, basename) for basename in files if basename.lower().endswith(('.png', '.jpg'))]
+    latest_file = max(paths, key=os.path.getctime)
+    
+    print(f'Most recent download: {latest_file}')
+    
+    
+    # Muestra la imagen descargada en Jupyter Notebook (si es una imagen)
+    from IPython.display import Image as IPImage, display
+    if latest_file.endswith('.png') or latest_file.endswith('.jpg'):
+        display(IPImage(latest_file))
+
+
+    # elif latest_file.endswith('.pdf'):
+    #     display(IFrame(latest_file, width=600, height=800))
+
+    return
+
 
 def download_graph( series , start_date , end_date , format= 'png'):
     '''
@@ -375,7 +459,7 @@ def download_graph( series , start_date , end_date , format= 'png'):
         This function scraps series from the BCRP Database and downloads the image in the given format.
 
     Input: 
-        series (str/list) : The code of the series we want to webscrap, i.e: '	PN38705PM'. In case we want to scrap many series, we enter a list with each code 
+        series (str/list) : The code of the series we want to webscrap, i.e: 'PN38705PM'. In case we want to scrap many series, we enter a list with each code 
                             separated by a coma, up to 10 codes, i.e: ['PN38706PM', 'PN38707PM', 'PN38708PM', 'PN38708PM']
 
         start_date (str)  : The starting date of the series. For daily series it must follow the patter 'yyyy-mm-dd'. For other frequencies it must 
