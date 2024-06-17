@@ -409,7 +409,7 @@ def bcrp_graph( series , start_date , end_date , format= 'png'):
     anio2     = end_date
     url       = base + serie + '/' + 'html' + '/' + anio1  + '/' + anio2
     options   = Options()
-    # options.add_argument( '--headless' )
+    options.add_argument( "--headless=new"  )
     driver    = webdriver.Chrome(options = options)        
     driver.get( url )
     driver.maximize_window()
@@ -449,6 +449,8 @@ def bcrp_graph( series , start_date , end_date , format= 'png'):
 
     # elif latest_file.endswith('.pdf'):
     #     display(IFrame(latest_file, width=600, height=800))
+    
+    driver.quit()
 
     return
 
@@ -512,6 +514,8 @@ def download_graph( series , start_date , end_date , format= 'png'):
     elif format == 'pdf':
         driver.find_element(By.XPATH, '//*[@id="chart-selector"]/li[3]/img').click()
         time.sleep(4)
+        
+    driver.quit()
 
     return
 
