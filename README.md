@@ -6,6 +6,8 @@ This repository has a module that allows the scrapping of the Peruvian Central o
 
 ```bcrp_scrapper()```: This function scraps series from the BCRP Database and gives us a dataframe with the series.
 
+```bcrp_graph()```: This function graphs series from the BCRP Database.
+
 ```downlodad_graph()```: This function scraps series from the BCRP Database and downloads the image in the given format (png, jpg, pdf).
 
 
