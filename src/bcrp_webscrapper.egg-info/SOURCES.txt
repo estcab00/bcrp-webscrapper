@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+src/bcrp_webscrapper.egg-info/PKG-INFO
+src/bcrp_webscrapper.egg-info/SOURCES.txt
+src/bcrp_webscrapper.egg-info/dependency_links.txt
+src/bcrp_webscrapper.egg-info/requires.txt
+src/bcrp_webscrapper.egg-info/top_level.txt

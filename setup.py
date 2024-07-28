@@ -4,8 +4,8 @@ with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='bcrp-webscrapper-estcab',
-    version = '1.0',
+    name='bcrp_webscrapper',
+    version = '1.0.2',
     author = 'Esteban Cabrera',
     description = 'Time series extraction from the Peruvian Central Bank Database (BCRP Statistics)',
     long_description = long_description,

@@ -1,0 +1,7 @@
+pandas
+numpy
+requests
+unidecode
+selenium
+openpyxl
+more-itertools
