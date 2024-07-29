@@ -5,3 +5,4 @@ unidecode
 selenium
 openpyxl
 more-itertools
+webdriver_manager
