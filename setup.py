@@ -27,5 +27,6 @@ setuptools.setup(
         'selenium',
         'openpyxl',
         'more-itertools',
+        'webdriver_manager'
     ]
 )
