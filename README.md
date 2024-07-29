@@ -64,10 +64,10 @@ from bcrp_webscrapper import *
 
 var = "Expectativas"
 freq = "Mensual"
-print( bcrp.bcrp_search( var , freq) )
+print(bcrp.bcrp_search( var , freq))
 
 var2 = "PBI"
-print( bcrp.bcrp_search( var2 ) )
+print(bcrp.bcrp_search( var2 ))
 ```
 
 - **Example 2**
