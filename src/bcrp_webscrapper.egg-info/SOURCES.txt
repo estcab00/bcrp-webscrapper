@@ -1,6 +1,8 @@
 LICENSE
 README.md
 setup.py
+src/bcrp_webscrapper/__init__.py
+src/bcrp_webscrapper/bcrp.py
 src/bcrp_webscrapper.egg-info/PKG-INFO
 src/bcrp_webscrapper.egg-info/SOURCES.txt
 src/bcrp_webscrapper.egg-info/dependency_links.txt

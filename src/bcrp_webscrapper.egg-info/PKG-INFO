@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
-Name: bcrp-webscrapper
-Version: 1.0.2
+Name: bcrp_webscrapper
+Version: 1.0.4
 Summary: Time series extraction from the Peruvian Central Bank Database (BCRP Statistics)
 Home-page: https://github.com/estcab00/bcrp-webscrapper
 Author: Esteban Cabrera
