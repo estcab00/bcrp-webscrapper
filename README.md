@@ -6,7 +6,7 @@ This repository has a module that allows the scrapping of the Peruvian Central o
 The repository contains the following folders:
 
 - `src` : Contains the `.py` files where the functions are defined, specifically under the `bcrp_webscrapper` subdirectory.
-- `test` : Includes example usage and tests for the functions, such as the Jupyter Notebook `bcrp_webscrapping_test.ipynb`.
+- `test` : Includes example usage and tests for the functions.
 - `dist` : Contains the distribution packages, such as `.tar.gz` and `.whl` files, for different versions of the project.
 - `build` : Holds build-related files, including intermediate files and directories used during the packaging process.
 
