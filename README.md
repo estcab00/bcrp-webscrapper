@@ -92,7 +92,7 @@ end_date   = '2022'
 bcrp.bcrp_graph( codes , start_date , end_date )
 ```
 
-For more examples, please refer to the [the test folder](https://github.com/estcab00/bcrp_webscrapper/blob/main/test/bcrp_webscrapping_test.ipynb).
+For more examples, please refer to the [the test folder]([https://github.com/estcab00/bcrp_webscrapper/blob/main/test/bcrp_webscrapping_test.ipynb](https://github.com/estcab00/bcrp-webscrapper/blob/main/test/test.py)).
 
 ## Contributing
 
